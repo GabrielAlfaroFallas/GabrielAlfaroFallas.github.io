@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvida al sitio web</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333; /* Cambiar al color de fondo deseado */
+        }
+
+        #welcomeMessage {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ffffff; /* Cambiar al color deseado */
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="welcomeMessage"></h1>
+
+    <div>
+        <button onclick="goBack()">Volver</button>
+    </div>
+
+    <script>
+        // Obtener el nombre de usuario de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        // Mostrar el mensaje de bienvenida
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        welcomeMessage.textContent = `Bienvenido al sitio web, ${decodeURIComponent(username)}!`;
+
+        // Función para volver a la página de inicio
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
